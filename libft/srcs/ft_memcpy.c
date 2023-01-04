@@ -6,9 +6,11 @@
 /*   By: jeoh <jeoh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:37:49 by jeoh              #+#    #+#             */
-/*   Updated: 2022/11/22 00:20:26 by jeoh             ###   ########.fr       */
+/*   Updated: 2022/12/27 01:30:51 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t num)
 {
