@@ -18,12 +18,12 @@
 - [x] *ft_strchr
 - [ ] ft_strncmp
 - [x] *ft_memchr
-- [ ] ft_memcmp
+- [x] ft_memcmp
 - [ ] *ft_strnstr
 - [ ] ft_atoi
 
 **Using malloc**
-- [ ] *ft_calloc
+- [x] *ft_calloc
 - [x] *ft_strdup
 
 ## Part 2
