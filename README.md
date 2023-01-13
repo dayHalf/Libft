@@ -7,10 +7,10 @@
 - [x] ft_isascii
 - [x] ft_isdigit
 - [x] ft_isprint
-- [ ] *ft_memcpy
-- [ ] *ft_memset
+- [x] *ft_memcpy
+- [x] *ft_memset
 - [x] ft_strlen
-- [ ] *ft_memmove
+- [x] *ft_memmove
 - [ ] ft_strlcpy
 - [ ] ft_strlcat
 - [x] ft_toupper
