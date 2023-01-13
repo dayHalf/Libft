@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeoh <jeoh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:30:43 by jeoh              #+#    #+#             */
-/*   Updated: 2022/12/27 02:03:12 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/14 00:40:09 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,10 @@ void	ft_putnbr_fd(int n, int fd);
 /*
 *	[bonus]
 */
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 #endif

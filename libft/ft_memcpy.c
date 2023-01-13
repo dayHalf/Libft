@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeoh <jeoh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:37:49 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/12 22:07:06 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/13 23:26:00 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t num)
 {
-    size_t  i;
-    char    *tmp_dest;
-    char    *tmp_src;
-    
-    if (dest == NULL || src == NULL)
-        return (0);
-    tmp_dest = dest;
-    tmp_src = src;
-    i = 0;
-    while ( i < num)
-    {
-        tmp_dest[i] = tmp_src[i];
-        i++;
-    }
-    return (dst);
+	size_t	i;
+	char	*tmp_dest;
+	char	*tmp_src;
+
+	if (dest == NULL || src == NULL)
+		return (0);
+	tmp_dest = dest;
+	tmp_src = src;
+	i = 0;
+	while (i < num)
+	{
+		tmp_dest[i] = tmp_src[i];
+		i++;
+	}
+	return (dst);
 }
