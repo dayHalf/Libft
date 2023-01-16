@@ -11,12 +11,12 @@
 - [x] *ft_memset
 - [x] ft_strlen
 - [x] *ft_memmove
-- [ ] ft_strlcpy
-- [ ] ft_strlcat
+- [x] ft_strlcpy
+- [x] ft_strlcat
 - [x] ft_toupper
 - [x] ft_tolower
 - [x] *ft_strchr
-- [ ] ft_strncmp
+- [x] ft_strncmp
 - [x] *ft_memchr
 - [x] ft_memcmp
 - [ ] *ft_strnstr
