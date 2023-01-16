@@ -3,11 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeoh <jeoh@student.42seoul.fr>             +#+  +:+       +#+        */
+/*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 23:16:47 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/16 23:16:47 by jeoh             ###   ########.fr       */
+/*   Created: 2023/01/16 23:31:16 by jeoh              #+#    #+#             */
+/*   Updated: 2023/01/16 23:31:16 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
