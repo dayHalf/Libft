@@ -6,7 +6,7 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:31:28 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/16 23:32:31 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/17 20:41:26 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		if (((*((unsigned char *)s1 + i)) != (*((unsigned char *)s2 + i)))
 			|| (*((unsigned char *)s1 + i) == '\0'
-			|| *((unsigned char *)s2 + i) == '\0'))
+				|| *((unsigned char *)s2 + i) == '\0'))
 			return (*((unsigned char *)s1 + i) - *((unsigned char *)s2 + i));
 		i++;
 	}
