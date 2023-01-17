@@ -6,15 +6,18 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:32:02 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/16 23:32:50 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/18 00:16:20 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_tolower(int c)
+int	ft_toupper(int c)
 {
-	if ((int) 'A' <= c && c <= (int) 'Z')
-		return (c - (int)('A' - 'a'));
-	return (c);
+	if (('a' <= c) && (c <= 'z'))
+	{
+		return (c - 32);
+	}
+	else
+	{
+		return (c);
+	}
 }

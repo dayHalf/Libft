@@ -12,68 +12,30 @@
 
 #include "libft.h"
 
-int	full_len(int size, char **strs, char *sep)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	len;
-	int	i;
-	int	sep_len;
+	char	*ret;
+	size_t	len1;
+	size_t	len2;
 
-	sep_len = ft_strlen(sep);
-	i = 0;
-	len = 0;
-	while (i < size)
+	if (!s1 && s2)
+		return (ft_strdup(s2));
+	if (s1 && !s2)
+		return (ft_strdup(s1));
+	if (!s1 && !s2)
 	{
-		len += ft_strlen(strs[i]);
-		len += sep_len;
-		i++;
+		ret = (char *)malloc(1 * sizeof(char));
+		if (!ret)
+			return (0);
+		return (ft_memset(ret, 0, 1));
 	}
-	len -= sep_len;
-	return (len);
-}
-
-char	*str_cpy(char *dest, char *src)
-{
-	while (*src)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	return (dest);
-}
-
-void	join(int size, char **strs, char *sep, char *res)
-{
-	char	*tmp;
-	int		i;
-
-	tmp = res;
-	i = 0;
-	while (i < size)
-	{
-		tmp = str_cpy(tmp, strs[i]);
-		if (i != size - 1)
-			tmp = str_cpy(tmp, sep);
-		i++;
-	}
-	*(tmp) = 0x00;
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	int		f_len;
-	char	*res;
-
-	if (size <= 0)
-	{
-		res = (char *)malloc(1);
-		res[0] = 0x00;
-		return (res);
-	}
-	f_len = full_len(size, strs, sep);
-	res = (char *)malloc(sizeof(char) * (f_len + 1));
-	if (res == 0)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	ret = (char *)malloc((len1 + len2 + 1) * sizeof(char));
+	if (!ret)
 		return (0);
-	join(size, strs, sep, res);
-	return (res);
+	ft_memcpy(ret, s1, len1);
+	ft_memcpy(ret + len1, s2, len2);
+	ret[len1 + len2] = 0;
+	return (ret);
 }

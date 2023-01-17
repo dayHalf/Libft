@@ -12,105 +12,104 @@
 
 #include "libft.h"
 
-int	is_sep(char c, char *charset)
+static int	ft_free_element(char **arr)
 {
-	while (*charset)
+	size_t	i;
+
+	i = 0;
+	while (arr[i])
 	{
-		if (c == *charset)
-			return (1);
-		charset++;
+		free(arr[i]);
+		i++;
 	}
+	free(arr);
 	return (0);
 }
 
-int	count_word(char *str, char *charset)
+static char	*ft_strndup(char const *str, size_t	len)
 {
-	int	cnt;
+	char	*ret;
 
-	cnt = 0;
-	if (!is_sep(*str, charset))
-	{
-		cnt++;
-		str++;
-	}
-	while (*str)
-	{
-		if (is_sep(*(str - 1), charset) && !is_sep(*str, charset))
-			cnt++;
-		str++;
-	}
-	return (cnt);
-}
-
-char	*str_dup(char *str, int len)
-{
-	char	*res;
-	char	*tmp;
-
-	res = (char *)malloc(sizeof(char) * (len + 1));
-	if (res == 0)
+	ret = (char *)malloc((len + 1) * sizeof(char));
+	if (!ret)
 		return (0);
-	tmp = res;
-	while (len > 0)
-	{
-		*tmp = *str;
-		tmp++;
-		str++;
-		len--;
-	}
-	*tmp = 0x00;
-	return (res);
+	ft_memcpy(ret, str, len);
+	ret[len] = 0;
+	return (ret);
 }
 
-void	split(char *str, char *charset, int word, char **res)
+static int	ft_do_split(char **ret, char const *str, char c)
 {
-	int		i;
-	int		len;
-	char	*tmp;
+	size_t	i;
+	size_t	index;
+	size_t	len;
 
 	i = 0;
-	while (i < word)
+	index = 0;
+	while (str[i])
 	{
-		while (is_sep(*str, charset))
-			str++;
-		tmp = str;
-		len = 0;
-		while (!is_sep(*tmp, charset))
+		if (str[i] != c)
 		{
-			tmp++;
-			len++;
+			len = 0;
+			while (str[i + len] != c && str[i + len])
+				len++;
+			ret[index] = ft_strndup(str + i, len);
+			if (!ret[index])
+				return (ft_free_element(ret));
+			index++;
+			i = i + len;
 		}
-		res[i] = str_dup(str, len);
-		str += len;
-		i++;
+		else
+			i++;
 	}
+	ret[index] = 0;
+	return (1);
 }
 
-char	**ft_split(char *str, char *charset)
+static size_t	ft_get_split_size(char const *str, char c)
 {
-	int		word;
-	char	**res;	
-	char	*tmp;
-	int		len;
+	size_t	size;
+	size_t	i;
+	int		flag;
 
-	if (*charset == 0x00)
+	flag = 1;
+	i = 0;
+	size = 0;
+	while (str[i])
 	{
-		res = (char **)malloc(sizeof(char *) * 2);
-		len = 0;
-		tmp = str;
-		while (*(tmp++))
+		if (str[i] == c)
 		{
-			len++;
+			if (flag == 0)
+				size++;
+			flag = 1;
 		}
-		res[0] = str_dup(str, len);
-		res[1] = 0;
-		return (res);
+		else
+			flag = 0;
+		i++;
 	}
-	word = count_word(str, charset);
-	res = (char **)malloc(sizeof(char *) * (word + 1));
-	if (res == 0)
+	if (flag == 0)
+		size++;
+	return (size);
+}
+
+char	**ft_split(char const *str, char c)
+{
+	char	**ret;
+	size_t	size;
+
+	if (!str)
+	{
+		ret = (char **)malloc(1 * sizeof(char *));
+		if (!ret)
+			return (0);
+		ret[0] = (char *)(0);
+		return (ret);
+	}
+	size = ft_get_split_size(str, c);
+	ret = (char **)malloc((size + 1) * sizeof(char *));
+	if (ret == 0)
 		return (0);
-	split(str, charset, word, res);
-	res[word] = 0;
-	return (res);
+	if (!ft_do_split(ret, str, c))
+		return (0);
+	return (ret);
 }

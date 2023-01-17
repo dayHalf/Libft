@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 20:43:50 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/17 21:50:19 by jeoh             ###   ########.fr       */
+/*   Created: 2022/11/21 23:37:54 by jeoh              #+#    #+#             */
+/*   Updated: 2023/01/17 22:35:44 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (2);
-	else if (c >= '0' && c <= '9')
-		return (4);
-	else
+	unsigned char	*new_dst;
+	unsigned char	*new_src;
+	size_t			i;
+
+	if (dst == 0 && src == 0)
 		return (0);
+	i = -1;
+	new_dst = (unsigned char *)dst;
+	new_src = (unsigned char *)src;
+	if (new_dst < new_src)
+	{
+		while (++i < len)
+		{
+			new_dst[i] = new_src[i];
+		}
+	}
+	else
+	{
+		while (++i < len)
+		{
+			new_dst[len - i - 1] = new_src[len - i - 1];
+		}
+	}
+	return ((unsigned char *)dst);
 }

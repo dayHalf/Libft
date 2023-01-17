@@ -6,13 +6,13 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:29:53 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/16 23:32:18 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/17 23:47:04 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlcat(char *dest, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;

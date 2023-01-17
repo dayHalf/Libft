@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 20:43:50 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/17 21:50:19 by jeoh             ###   ########.fr       */
+/*   Created: 2023/01/17 23:59:59 by jeoh              #+#    #+#             */
+/*   Updated: 2023/01/18 00:40:13 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (2);
-	else if (c >= '0' && c <= '9')
-		return (4);
-	else
-		return (0);
+	if (lst == 0 || new == 0)
+	{
+		return ;
+	}
+	if ((*lst) == 0)
+	{
+		*lst = new;
+		return ;
+	}
+	new -> next = *lst;
+	*lst = new;
 }

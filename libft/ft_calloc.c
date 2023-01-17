@@ -6,7 +6,7 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:06:26 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/17 20:40:12 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/17 21:03:17 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	res = malloc(count * size);
 	if (!res)
 		return (0);
-	ft_bzero(ret, count * size);
+	ft_bzero(res, count * size);
 	return (res);
 }

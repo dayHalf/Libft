@@ -6,7 +6,7 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:35:38 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/16 23:30:38 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/18 00:09:28 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (n == NULL)
-		return ;
-	while (n > 0)
+	size_t	i;
+
+	i = 0;
+	while (i < n)
 	{
-		s[n - 1] = 0;
-		n--;
+		((unsigned char *)s)[i] = 0;
+		i++;
 	}
 }

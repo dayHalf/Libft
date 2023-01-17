@@ -6,7 +6,7 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:29:49 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/17 20:40:55 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/18 00:32:39 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 char	*ft_strdup(const char *s1)
 {
-	int		len;
-	int		i;
-	char	*dup;
+	size_t	i;
+	char	*ret;
 
-	len = ft_strlen(s1);
-	dup = (char *)malloc(len);
-	if (!dup)
-		retrun (0);
+	ret = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (!ret)
+		return (0);
 	i = 0;
-	while (i < len)
+	while (s1[i])
 	{
-		dup[i] = s1[i];
+		ret[i] = s1[i];
 		i++;
 	}
-	return (dup);
+	ret[i] = 0;
+	return (ret);
 }

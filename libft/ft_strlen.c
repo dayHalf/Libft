@@ -6,7 +6,7 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:31:19 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/16 23:32:21 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/18 00:08:33 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	len;
 
-	if (s == NULL)
-		return (0);
 	len = 0;
 	while (s[len])
 		len++;

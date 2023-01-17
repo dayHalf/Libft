@@ -6,7 +6,7 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:30:12 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/16 23:32:19 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/17 22:27:12 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	while (src[i] != '\0' && i < dstsize - 1)
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	dest[i] = 0x00;
+	dst[i] = 0x00;
 	return (src_size);
 }

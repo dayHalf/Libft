@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 20:43:50 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/17 21:50:19 by jeoh             ###   ########.fr       */
+/*   Created: 2023/01/18 00:01:05 by jeoh              #+#    #+#             */
+/*   Updated: 2023/01/18 00:04:22 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (2);
-	else if (c >= '0' && c <= '9')
-		return (4);
-	else
-		return (0);
+	t_list	*tmp;
+
+	if (lst == 0 || f == 0)
+		return ;
+	tmp = lst;
+	while (tmp != 0)
+	{
+		f(tmp->content);
+		tmp = tmp->next;
+	}
 }
