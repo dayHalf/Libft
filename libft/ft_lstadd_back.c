@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:59:31 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/18 00:37:07 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/18 01:30:53 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
+	t_list	*ptr;
 
-	if (lst == 0 || new == 0)
-	{
+	if (!new)
 		return ;
-	}
-	if ((*lst) == 0)
-	{
+	if (!*lst)
 		*lst = new;
-		return ;
-	}
-	tmp = *lst;
-	while (tmp->next != 0)
+	else
 	{
-		tmp = tmp->next;
+		ptr = ft_lstlast(*lst);
+		ptr->next = new;
 	}
-	tmp->next = new;
-	new->next = 0;
 }

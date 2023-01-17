@@ -6,7 +6,7 @@
 /*   By: jeoh <jeoh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:06:26 by jeoh              #+#    #+#             */
-/*   Updated: 2023/01/17 21:03:17 by jeoh             ###   ########.fr       */
+/*   Updated: 2023/01/18 01:29:35 by jeoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*res;
+	void	*p;
+	size_t	n;
 
-	res = malloc(count * size);
-	if (!res)
+	n = count * size;
+	if (count > 0 && size >= SIZE_MAX / count)
+		return (NULL);
+	p = malloc(n);
+	if (!p)
 		return (0);
-	ft_bzero(res, count * size);
-	return (res);
+	ft_memset(p, 0, n);
+	return (p);
 }
