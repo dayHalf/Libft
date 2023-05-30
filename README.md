@@ -1,4 +1,5 @@
 # Libft
+Repo for 42 seoul task
 
 ## Part 1
 - [x] ft_bzero
